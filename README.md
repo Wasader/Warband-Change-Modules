@@ -16,14 +16,13 @@ This project is a rewrite of the Mount & Blade: Warband non-working module repla
 Download the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/Wasader/wcm.git
 ```
 Go to the project's directory
 
 ```bash
-  cd my-project
+  cd wcm-main
 ```
-
 And run
 
 ```bash
