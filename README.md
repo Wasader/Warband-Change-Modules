@@ -13,11 +13,24 @@ This project is a rewrite of the Mount & Blade: Warband non-working module repla
   
 ## How to operate
 
+Download the project
+
+```bash
+  git clone https://link-to-project
+```
+Go to the project's directory
+
+```bash
+  cd my-project
+```
+
+And run
+
 ```bash
 python3 wcm-*.py
 
 ```
-## And Use :)
+## Now you are ready to change modules and keys :)
 
   
 ## Contribution
