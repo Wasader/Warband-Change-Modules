@@ -84,7 +84,6 @@ while process == 0:
               print("Oyunuz modulu "+modules[choice1-1]+" olarak ayarlandı")
               time.sleep(0.5)
               process = 0
-            #Try Except ile int sorununu düzelt !
     elif choice == "2":
       os.system("clear")
       print("Oyun Dizinleri kontral edliyor!")
