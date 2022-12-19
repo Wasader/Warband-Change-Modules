@@ -1,5 +1,5 @@
 
-# WCM (Warvand Change Modules)
+# WCM (Warband Change Modules)
 
 This project is a rewrite of the Mount & Blade: Warband non-working module replacement panel.
 
