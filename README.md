@@ -20,12 +20,12 @@ Memo:This project was not written with crack users in mind. If you are using cra
 Download the project
 
 ```bash
-  git clone https://github.com/Wasader/wcm.git
+  git clone https://github.com/Wasader/Warband-Change-Modules.git
 ```
 Go to the project's directory
 
 ```bash
-  cd wcm-main
+  cd Warband-Change-Modules
 ```
 And run
 
