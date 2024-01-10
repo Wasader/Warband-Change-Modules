@@ -4,7 +4,7 @@ import fnmatch
 
 def welcome_message():
     print("""
-    Welcome To,
+    Welcome,
 
     888       888       .d8888b.       888b     d888 
     888   o   888      d88P  Y88b      8888b   d8888 
@@ -20,27 +20,27 @@ def change_module():
     os.system("clear")
     user = os.environ['USER']
     
-    print("Searching for the directory where the game is installed. . .")
+    print("Searching for the Directory where the Game is Installed. . .")
     steamdir = f"/home/{user}/.steam/debian-installation/steamapps/common/MountBlade Warband"
     steamdircontrol = os.path.isdir(steamdir)
 
     if not steamdircontrol:
-        choice0 = input("Could not detect your game file, please specify the directory where the game is installed!")
-        # Oyunu crack indirip dosya sistemini incele!
+        choice0 = input("The game directory could not be detected, please specify the directory where the game is installed!")
+        # Download and inspect the cracked version of the game file system!
     else:
         gamefiledir = f"/home/{user}/.mbwarband"
         gamefilecontrol = os.path.isdir(gamefiledir)
 
         if not gamefilecontrol:
-            print("The game's files containing config information could not be found. Please specify the directory!")
-            # Crack... belki de başka bir hata var, bununla ilgili bilgilendirici bir yazı yazın!
+            print("The files containing the game's config information could not be found. Please specify the directory!")
+            # Crack... maybe there is another error, write an informative message about it!
         else:
             gmfilemodules = gamefiledir + "/last_module_warband"
             gmmainfile = steamdir + "/Modules/"
 
             print("The directory where the game is installed has been detected!")
 
-            print("Available Modules!")
+            print("Current Modules!")
             modules = [name for name in os.listdir(gmmainfile) if os.path.isdir(os.path.join(gmmainfile, name))]
 
             a = 0
@@ -51,65 +51,64 @@ def change_module():
             allmod = len(modules)
 
             if allmod == 1:
-                print("Only 1 mod detected in the Module Folder!")
-                print("The current mod last_module_warband will be written to avoid possible errors!")
+                print("Only 1 module detected in the Module Folder!")
+                print("To prevent possible errors, the current module will be set as last_module_warband!")
 
                 changemodules = open(gmfilemodules, "w")
                 changemodules.write(modules[0])
-                print("The found mod has been successfully written!")
+                print("The found module has been successfully written!")
             else:
                 try:
-                    choice1 = int(input("Modules in the Modules folder. Please select. -->"))
+                    choice1 = int(input("Modules found in the folder. Please make a selection. -->"))
                 except ValueError:
                     print("Invalid Operation!")
                     return
 
                 if choice1 > allmod or choice1 < 1:
-                    os.system("clear")
                     print("Invalid Operation!")
                 else:
                     changemodules = open(gmfilemodules, "w")
                     changemodules.write(modules[choice1 - 1])
                     changemodules.close()
                     os.system("clear")
-                    print(f"Your game module set to {modules[choice1 - 1]}")
+                    print(f"Your game is set to the module {modules[choice1 - 1]}")
                     time.sleep(0.5)
 
 def change_key():
     os.system("clear")
     user = os.environ['USER']
 
-    print("Game Directories are controlling!")
-    print("Searching for the directory where the game is installed. . .")
+    print("Checking Game Directories!")
+    print("Searching for the Directory where the Game is Installed. . .")
     steamdir = f"/home/{user}/.steam/debian-installation/steamapps/common/MountBlade Warband"
     steamdircontrol = os.path.isdir(steamdir)
 
     if not steamdircontrol:
-        choice0 = input("Could not detect your game file, please specify the directory where the game is installed!")
-        # Oyunu crack indirip dosya sistemini incele!
+        choice0 = input("The game directory could not be detected, please specify the directory where the game is installed!")
+        # Download and inspect the cracked version of the game file system!
     else:
         gamefiledir = f"/home/{user}/.mbwarband"
         gamefilecontrol = os.path.isdir(gamefiledir)
 
         if not gamefilecontrol:
-            print("The game's files containing config information could not be found. Please specify the directory!")
-            # Crack... belki de başka bir hata var, bununla ilgili bilgilendirici bir yazı yazın!
+            print("The files containing the game's config information could not be found. Please specify the directory!")
+            # Crack... maybe there is another error, write an informative message about it!
         else:
             gmfilemodules = gamefiledir + "/last_module_warband"
             gmmainfile = steamdir + "/Modules/"
 
             print("The directory where the game is installed has been detected!")
 
-            print("Key files are being scanned!")
+            print("Scanning Key files!")
             pattern = 'serial_key*'
             keylist = fnmatch.filter(os.listdir(gamefiledir), pattern)
 
-            print("Which Mod would you like to change the key of?")
+            print("Which Module's key do you want to change?")
             a = 1
-            for eleman in keylist:
-                if eleman in "serial_key":
+            for element in keylist:
+                if element in "serial_key":
                     print(a, "- Native Key")
-                elif eleman in "serial_key_nw":
+                elif element in "serial_key_nw":
                     print(a, "- Napoleonic Wars Key")
                 a += 1
 
@@ -125,12 +124,12 @@ def change_key():
                 print("Invalid Operation!")
             else:
                 keyloc = gamefiledir + "/" + keylist[choice2 - 1]
-                key = input("Enter Key -->")
+                key = input("Enter the Key -->")
                 changekey = open(keyloc, "w")
                 changekey.write(key)
                 changekey.close()
                 os.system("clear")
-                print("The key was successfully changed. You are transferred to the main menu!")
+                print("Key successfully changed. You are being transferred to the main menu!")
 
 def main():
     process = 0
@@ -139,10 +138,10 @@ def main():
         welcome_message()
 
         choice = input("""
-        Select the action you want to do.
+        Please select the operation you want to perform.
         1- Change Module
         2- Change Key
-        3- Press Q to exit
+        3- Press Q to Quit
 
         -->""")
 
@@ -154,8 +153,4 @@ def main():
             change_module()
         elif choice == "2":
             process = 2
-            change_key()
-        else:
-            process = 0
-            os.system("clear")
-            print("Invalid Operation!")
+
